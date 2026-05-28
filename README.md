@@ -1,4 +1,6 @@
-# Resume Application Workspace
+# Resume-Creator
+
+Resume-Creator is a structured resume application workspace.
 
 This workspace creates tailored job application packages for one or more candidates. It supports resume tailoring, recruiter messages, cover letters or application notes, ATS checks, recruiter-readiness checks, hiring-manager-readiness checks, presentation/publishing review, and interview-prep notes.
 
