@@ -1,0 +1,97 @@
+
+
+--- PAGE 1 ---
+Raghav Dharani
+Principal Product Manager - AI-Enabled Platforms | Enterprise Workflow and People Systems
+New York, NY   |   929-260-8138   |   raghav.dr@gmail.com   |   linkedin.com/in/raghavdharani
+PROFESSIONAL SUMMARY
+Product leader with 10+ years building enterprise SaaS platforms from the ground up - taking products from concept to
+measurable adoption across AI-enabled workflow systems, operational decision platforms, and B2B2C SaaS in retail and
+financial services. Experienced in designing systems that change how people work: translating complex, high-stakes
+operational behavior into structured, scalable product capabilities that drive measurable outcomes for both enterprise
+buyers and the individuals those buyers serve.
+Operates with genuine ownership - carries multi-year product vision, works directly alongside founding and engineering
+teams, and moves from ambiguous problem to launched product without waiting for full resourcing. Comfortable being
+external-facing: has shaped product direction through direct enterprise buyer relationships, solution design sessions, and
+hands-on customer discovery throughout the product lifecycle.
+Actively builds working prototypes in Claude and Cursor before engineering is in the room - compressing discovery
+cycles, sharpening scope decisions, and de-risking delivery. Brings the same discipline to AI-assisted product
+development that platform builders bring to system design.
+CORE STRENGTHS
+New Product Development · AI-Enabled Platforms · B2B2C Enterprise SaaS · Behavioral Workflow Systems · Prototype-Led
+Discovery · Solution Design and Enterprise Discovery · API-First Architecture · Multi-Year Roadmap Ownership ·
+Cross-Functional Leadership · Enterprise Adoption and Scaling
+PROFESSIONAL EXPERIENCE
+Senior Product Manager - Enterprise Merchandising Platform
+ 2025 - Present
+KWI
+ Took a Transfers Operations application from problem discovery through launch - drove requirements, workflow design,
+ and prototype validation through phased rollout, achieving 70% client migration from legacy to new workflows within 2
+months of launch and reducing transfer error and exception rates by 30%.
+ Introduced AI-assisted, spec-driven development using Claude and Cursor - building working prototypes before
+ engineering engagement, reducing requirement clarification cycles by approximately 25% and rework by 20-30%; now
+an established practice across the product team.
+ Leading modernization of the core Merchandising platform, defining a three-phase roadmap across purchasing and
+ store-transfer capabilities - creating a clear path from discovery through release while balancing enterprise customer
+constraints and delivery realities.
+ Partner directly with engineering, design, and business leadership to translate ambiguous operational needs into clear
+ functional specifications, decision frameworks, and implementation-ready stories - operating as the single point of
+product accountability across a high-complexity, multi-stakeholder environment.
+Senior Product Manager - Store Operations Platform
+ 2022 - 2025
+Upshop
+ Built a mobile-first B2B2C store operations platform from the ground up - greenfield product taken from concept through
+ launch across 100+ grocery retail locations. Navigated the core B2B2C tension: selling to enterprise retail buyers while
+designing for the frontline workers those buyers serve, and ensuring both groups got measurable value.
+ Launched a net-new Grocery Ordering and Replenishment system powered by ML-based demand signals, giving
+ frontline operators data-driven production and stocking recommendations for the first time. Reduced overproduction by
+18% and improved forecast accuracy across distributed store teams.
+
+
+
+--- PAGE 2 ---
+ Drove 40% increase in user engagement by replacing fragmented, paper-based store processes with a unified
+ mobile-native experience - reflecting genuine behavioral adoption of a new way of working, not just feature utilization.
+ Introduced waste audit and loss prevention workflows from scratch, reducing inventory shrink by 12% across retail
+ networks within 6 months of launch.
+ Designed and launched external-facing REST APIs enabling enterprise clients to connect POS, ERP, and supply-chain
+ systems, expanding the platform's role within broader enterprise technology ecosystems.
+ Led solution design sessions and product discovery directly with enterprise customers and store-level end users; used
+ that signal to drive roadmap decisions that exceeded performance targets by 30%+ across deployments.
+Lead Product Manager - Channel Incentive and Claims Platform
+ 2019 - 2022
+360insights
+ Owned roadmap and execution for an enterprise SaaS platform serving 100+ clients across channel operations, claims
+ workflows, and data management in a complex multi-stakeholder environment.
+ Led a ground-up rebuild of the claims platform that doubled processing throughput and cut manual review effort by 50%,
+ delivered through improved workflow architecture and process redesign.
+ Built new data ingestion and API-driven onboarding workflows that reduced enterprise client implementation timelines by
+ 35%.
+ Improved client NPS from 6.5 to 8.5 through targeted investments in reporting transparency, workflow visibility, and
+ operational performance tooling.
+ Influenced senior stakeholders on roadmap and system design decisions in a financially driven, compliance-sensitive
+ environment - building executive trust through structured product narratives and clear tradeoff framing.
+Product Manager - AI and Intelligent Automation Platform
+ 2016 - 2019
+EdgeVerve Systems
+ Led product development for an enterprise AI/ML-driven automation platform from ideation through market launch,
+ partnering with engineering and data science to bring a technically complex product to enterprise customers.
+ Drove 50% increase in platform adoption by defining routing, exception handling, and monitoring capabilities; embedded
+ AI classification and decision logic into production workflows aligned to enterprise SLAs.
+ Contributed to Forrester Wave Strong Performer recognition (2017, RPA category) - built the product narratives that
+ translated early AI complexity into clear business value for enterprise buyers and shaped external positioning.
+AI PROTOTYPING AND TECHNICAL PRACTICE
+ Builds working product prototypes and workflow specs in Claude and Cursor before engineering involvement - used
+ actively at KWI to validate scope, reduce ambiguity, and accelerate design-to-build handoff. Treats prototyping as a
+product discipline, not a shortcut.
+ Experiments with AI integration into structured decision and behavioral workflows: how AI-driven nudges, personalized
+ recommendations, and orchestration logic can guide users toward better decisions within complex operational systems
+- directly applicable to AI coaching and people development platforms.
+EDUCATION AND CERTIFICATIONS
+MBA - Management Development Institute
+B.E. - R.V. College of Engineering
+CSPO - Certified Scrum Product Owner, Scrum Alliance
+Pragmatic Marketing - Level II Certified
+TOOLS AND TECHNICAL PROFICIENCIES
+Jira · Aha! · Figma · Postman · Swagger · Lucidchart · Tableau · Google Analytics  |  REST API design · Event-driven workflow
+patterns  |  AI Tools: Claude (spec drafting and workflow design) · GitHub Copilot · Vercel v0 · Figma AI

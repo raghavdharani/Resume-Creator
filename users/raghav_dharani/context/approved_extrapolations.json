@@ -1,0 +1,41 @@
+[
+  {
+    "claim": "Designed product workflows to influence user behavior and drive action completion.",
+    "source": "Raghav approval in Left Field Labs Senior AI Technical Product Manager package, 2026-05-25",
+    "status": "approved_extrapolation",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "AI Product Manager",
+      "Technical Product Manager",
+      "B2B SaaS Product Manager"
+    ],
+    "interview_defense": "Tie to Upshop mobile-first store operations workflows, frontline adoption, 40% engagement increase, and workflow design choices that guided users toward required operational actions.",
+    "date_added": "2026-05-25"
+  },
+  {
+    "claim": "Worked in compliance-adjacent store operations environments at Upshop.",
+    "source": "Raghav approval in Left Field Labs Senior AI Technical Product Manager package, 2026-05-25",
+    "status": "approved_extrapolation",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "Retail Tech Product Manager",
+      "Operational Workflow Product Manager",
+      "Compliance-Adjacent Workflow Product Manager"
+    ],
+    "interview_defense": "Use only for Upshop. Discuss store operations, waste audits, loss prevention, and operational controls. Do not tie this claim to 360insights and do not present it as direct insurance compliance.",
+    "date_added": "2026-05-25"
+  },
+  {
+    "claim": "Built prototypes for live stakeholder validation using Claude and Cursor.",
+    "source": "Raghav approval in Left Field Labs Senior AI Technical Product Manager package, 2026-05-25",
+    "status": "approved_extrapolation",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "AI Product Manager",
+      "Technical Product Manager",
+      "Platform Modernization Product Manager"
+    ],
+    "interview_defense": "Explain which stakeholders reviewed prototypes, what decisions the prototypes clarified, and how they improved specs and engineering handoff.",
+    "date_added": "2026-05-25"
+  }
+]

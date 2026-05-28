@@ -1,0 +1,41 @@
+[
+  {
+    "claim": "Introduced AI-assisted, spec-driven development using Claude and Cursor to build prototypes before engineering engagement.",
+    "source": "Raghav_Dharani_Resume.pdf, KWI experience",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "AI Product Manager",
+      "Technical Product Manager",
+      "Principal Product Manager"
+    ],
+    "interview_defense": "Explain how prototypes and specs were created before engineering engagement, how they reduced ambiguity, and how this became a product team practice.",
+    "date_added": "2026-05-25"
+  },
+  {
+    "claim": "Launched ML-powered grocery ordering and replenishment workflows using demand signals to guide frontline decisions.",
+    "source": "Raghav_Dharani_Resume.pdf, Upshop experience",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "AI Product Manager",
+      "Retail Tech Product Manager",
+      "Senior Product Manager",
+      "Technical Product Manager"
+    ],
+    "interview_defense": "Frame as product ownership of ML-enabled recommendations, not ML engineering ownership.",
+    "date_added": "2026-05-25"
+  },
+  {
+    "claim": "Led a claims platform rebuild that doubled processing throughput and reduced manual review effort by 50%.",
+    "source": "Raghav_Dharani_Resume.pdf, 360insights experience",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "B2B SaaS Product Manager",
+      "Platform Modernization Product Manager",
+      "Fintech Product Manager",
+      "Compliance-Adjacent Workflow Product Manager"
+    ],
+    "interview_defense": "Discuss workflow architecture, process redesign, throughput improvement, and manual review reduction without overstating direct insurance expertise.",
+    "date_added": "2026-05-25"
+  }
+]

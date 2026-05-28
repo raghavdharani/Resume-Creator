@@ -1,0 +1,28 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Office temporary and lock files
+~$*
+*.tmp
+*.temp
+*.bak
+
+# Python/cache artifacts from ad hoc export or conversion tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environment files
+.env
+.env.*
+
+# Generated scratch folders
+scratch/
+tmp/
+temp/

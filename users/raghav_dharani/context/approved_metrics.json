@@ -1,0 +1,90 @@
+[
+  {
+    "metric": "70% client migration within 2 months",
+    "source": "KWI Transfers Operations application",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior Product Manager",
+      "Technical Product Manager",
+      "Platform Modernization Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "30% reduction in transfer errors and exceptions",
+    "source": "KWI Transfers Operations application",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior Product Manager",
+      "Technical Product Manager",
+      "Retail Tech Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "Requirement clarification cycles reduced by approximately 25%",
+    "source": "KWI AI-assisted, spec-driven development practice",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "AI Product Manager",
+      "Technical Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "Rework reduced by 20% to 30%",
+    "source": "KWI AI-assisted, spec-driven development practice",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior AI Technical Product Manager",
+      "AI Product Manager",
+      "Technical Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "18% reduction in overproduction",
+    "source": "Upshop grocery ordering and replenishment system",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Retail Tech Product Manager",
+      "AI Product Manager",
+      "Operational Workflow Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "40% increase in user engagement",
+    "source": "Upshop mobile-first store operations platform",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "Senior Product Manager",
+      "Retail Tech Product Manager",
+      "B2B SaaS Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "Claims processing throughput doubled",
+    "source": "360insights claims platform rebuild",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "B2B SaaS Product Manager",
+      "Platform Modernization Product Manager",
+      "Workflow Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  },
+  {
+    "metric": "Manual review effort reduced by 50%",
+    "source": "360insights claims platform rebuild",
+    "status": "confirmed",
+    "usable_for_roles": [
+      "B2B SaaS Product Manager",
+      "Platform Modernization Product Manager",
+      "Workflow Product Manager"
+    ],
+    "date_added": "2026-05-25"
+  }
+]

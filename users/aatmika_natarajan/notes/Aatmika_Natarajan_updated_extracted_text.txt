@@ -1,0 +1,252 @@
+ 
+ 
+ 
+ 
+PROFESSIONAL SUMMARY 
+SAP Technical Consultant with over 18 years of experience, including 8+ years of experience in S/4 HANA. Proven expertise in 
+ABAP 7.4, Integration architecture, SAP Gateway services, and HANA database performance optimization. Adept at leading SAP 
+implementation projects across manufacturing, retail, and consumer goods industries. A strong mentor and leader with 
+experience in architecting and delivering solutions for SAP Implementations, Upgrades, Data Migrations, Middleware 
+Integrations.
+KEY SKILLS
+• 
+SAP S/4 HANA Brownfield & Greenfield Implementation.  
+• 
+ABAP 7.4 & ABAP OO RICEFW 
+• 
+Restful ABAP Programming 
+• 
+Integration with SAP PI, TM, SRM (data mapping with ECC) 
+• 
+ SAP OData Services, Proxy’s 
+• 
+Interfaces like IDOC’s, Bapi’s, RFC’s 
+• 
+Enhancement Framework 
+• 
+Worked extensively in P2P (PP), OTC (SD, MM & EWM) and FICO 
+• 
+ABAP for Data Archiving PBS to ILM  
+• 
+SAP BTP Platform & CPI: SAP BTP services and CPI.  
+• 
+Performance Optimization of FI extract report, Archiving tool ILM, BW Reporting  
+• 
+Agile Methodologies: 3+ years of extensive experience in working on Sprints  
+• 
+Technical Leadership: Proven ability to mentor and manage teams, driving innovation and fostering collaboration. 
+• 
+Regular Development activities like Effort estimation, technical design Spec Documentation, collaborating with cross 
+functional teams, Unit Testing, Peer Code review according to best practices, Smoke test, cut-over activities etc. 
+• 
+Experienced in ticketing tools like CHARM, Clarity, Jira etc 
+• 
+Worked with AI tools like Co-pilot, Joules, ChatGPT etc. 
+ 
+WORK EXPERIENCE  
+SAP ABAP Developer (Permanent) 
+Maple Leaf Foods, Toronto 
+ 
+ 
+ 
+ Nov 2019 – Present 
+(In-house IT team – S/4 HANA 1909 to 2023 upgrades) 
+• 
+Developed and enhanced multiple SAP ABAP objects across SD, MM, FI/CO, WM, and TM modules, ensuring alignment 
+with SAP Clean Core principles. Delivered both traditional RICEF developments and modern RAP/Fiori-based applications. 
+• 
+Designed and modified ABAP-SmartForms, SAPscript, and Adobe Forms, including Manual Cheque, Cashed Cheque, CAFS, 
+and Customer Invoice forms, during the transition between banking service providers for Accounts Receivable and Treasury 
+teams. 
+• 
+Core ABAP developer for the S/4 HANA 1909 Brownfield Migration and subsequent upgrades (to 2023): 
+ 
+Aatmika Natarajan 
++1 (647) 628-2990| aatmika.n@gmail.com | 
+ https://www.linkedin.com/in/aatmika-natarajan-ab468612   
+Canadian Citizen (Eligible for TN visa) 
+
+  
+o 
+Executed ABAP SPDD/SPAU adjustments, applied ATC Quick Fixes, and resolved syntax and performance 
+inconsistencies caused by migration. 
+o 
+Analyzed and implemented SAP Notes for converting the table like MATDOC and ACDOCA to suit SAP HANA version 
+1909; fixed ABAP code issues caused due to EDI mapping mismatch for the MATNR field length expansion across SRM, 
+APO, and TM systems. 
+o 
+Supported SUM/SAINT upgrades, collaborated closely with Basis and Security teams, and participated in smoke testing 
+and cutover activities. 
+• 
+Worked on ABAP on S/4 HANA Clean-Core initiatives, refactoring legacy custom code to standard-compliant solutions. 
+Supported Recipe Development processes using SAP BTP-based extensions. 
+• 
+Developed a Fiori Elements application using RAP (unmanaged save) for Purchase Order Release (Approve/Reject) 
+functionality, leveraging standard BAPIs and modern ABAP RESTful Programming Model design patterns. 
+• 
+Built RF Gun (ABAP-WM) programs for the Bradford plant, streamlining warehouse operations and creating custom nodes 
+in /SCWM/MON to enhance warehouse monitoring capabilities. 
+• 
+Resolved complex ABAP-EDI integration issues between SAP and external systems (OTC, IBP, TM, SRM) by analyzing and 
+reconfiguring IDoc mappings in the outbound basic type IDocs processing routines- outbound DESADV IDocs for 
+international shipment processing. 
+• 
+Enhanced Web Service Proxy interfaces for TM portal integrations to improve reliability and data flow consistency. 
+• 
+Rewrote legacy ABAP data archival programs (PBS to ILM) for tables like SD_VBAK, SD_VBRK, FI_DOCUMENT, and 
+MM_MATBEL.  
+• 
+Developed ABAP custom analytical tools: 
+o 
+Automated Inventory Tool - enhanced MB52 functionality with HU summary and live inventory visibility. 
+o 
+Reusable ABAP OO-based Job Submission Utility – enabled users to export results in XLSX/CSV formats to both 
+Presentation and Application servers using advanced binary stream handling. 
+ 
+ 
+ 
+SAP ABAP Consultant (Contract with IDC Technologies) Siemens, Oakville  
+ 
+Jun 2018 – Nov. 2019 
+J2S Project – Siemens 
+• 
+Developed mass data tools (BAPI/BDC) for efficient parent-child change number tracking, DIR uploads, and ALV-based daily 
+sales and BOM change log reporting. 
+• 
+Enhanced SAP functionalities (CC01/02, CO02, COOIS/COHV) for production orders, BOM, and confirmations using BADIs, 
+user exits, and performance tuning. 
+• 
+Debugged and changed Customer statements forms using RFKORD11 for AR , created Customer invoices using smartforms 
+and Payment print notice  
+• 
+Created programs for General Ledger mass data upload for FB01/02 transaction codes; Journal entries data upload 
+• 
+Automated workflows (ECM/ECR), pricing routines for order confirmations, and custom SAP Script for production orders. 
+• 
+Streamlined HR processes by automating pay result data collection and CAT2/3/5/7/9 front-end screens. 
+Imall Interface Enhancements: (Agile Methodology – 2 week Sprint) 
+• 
+Enhanced sales order (SAPMV45A) to add "Market Facing Number" and "Vendor Number" fields in the item overview 
+and additional data tabs. Updated VBAP structures and implemented BADI MV45AFZZ to ensure accurate data flow and 
+storage. 
+• 
+Developed tools to update sales order line items for rebate claims and bank search strategies, automating MFN2 and 
+MLFB updates for Imall Interface. Modified Imall /Compass interface objects to handle new fields using 
+BAPI_SALESORDERCRTFRMDAT2 for OTC module. Built an interactive ALV report to manage sales and production order 
+user status changes. 
+
+  
+• 
+Automated mass updates of sales and production order statuses while dynamically blocking production order 
+components using STATUS_CHANGE_EXTERN and MD_RESET_KZEAR_RESB. 
+• 
+Designed a custom tool (ZIOMRESOLVE) to process IDOCs dynamically. Automated error resolution for failed IDOCs 
+(invalid 
+materials, 
+unit 
+mismatches, 
+pricing 
+errors) 
+and 
+reprocessed 
+them 
+using 
+BDC 
+(VA01) 
+or 
+BAPI_SALESORDER_CHANGE. Developed a log report to track error corrections and IDOC reprocessing through ALV. 
+• 
+Created a VOFM pricing routine for ZMLC condition type based on sales office and order type. 
+• 
+Enhanced Quotation (VA23) and Inbound Delivery (VL33N) Smart Forms to dynamically populate additional line-item data 
+and terms based on sales/purchase organizations. 
+• 
+Improved reporting by enabling email attachments in Excel and PDF formats. 
+• 
+Played a key role in the Re-Org 2020 project for Siemens, enhancing financial programs to support changes in profit 
+center and division structures, improving financial reporting accuracy and compliance with organizational requirements. 
+ 
+  ABAP Team Lead (Permanent)       Accenture Solutions Pvt Ltd, Bangalore                     Jan 2014 – Jan 2018 
+• 
+Led the ABAP on S/4 HANA on-premise implementation project for the Kirloskar Group. Facilitated client discussions for 
+interface development and workflow technical solutions, providing expertise in SAP integration and project management.  
+• 
+Managed a team of size 5, responsible for the development of 170 ABAP objects, ensuring on-time delivery, rigorous 
+quality control, and optimal alignment with strategic business needs.  
+ 
+Global Ownership of SAP Applications: 
+• 
+Served as Managed Service Owner (MSO) for PP, QM, and WM applications across EMEA, APAC, and NA regions. Led 
+escalation management for live production systems, addressing critical issues under tight SLAs and coordinating with 
+business stakeholders, third-party vendors, and plant managers to ensure uninterrupted operations. Conducted weekly 
+SLA reviews with client leadership to track performance and drive continuous improvement. 
+ 
+Leadership and Team Development: 
+• 
+Directed a team of 17-20 members, conducting comprehensive performance appraisals to assess and enhance individual 
+contributions. Fostered a high-performance culture through mentorship, skill development, and constructive feedback, 
+enabling consistent delivery of high-quality solutions within challenging timelines. 
+ 
+Strategic Process Improvements: 
+• 
+Spearheaded process optimization initiatives across 27 Managed Service Owners, introducing 3 innovative solutions that 
+reduced effort by 140 man-days and improved project efficiency. 
+ 
+ABAP Module Lead (Permanent) 
+    Mindtree Ltd, Bangalore  
+                      
+  Aug 2011- Jan 2014
+• 
+Maintenance Project for Tata Global Beverages (Client place Onsite) Production Planning RICEFW estimations, change 
+requests, and incident resolution, while facilitating L2 meetings with UK business leaders to ensure alignment, transparency, 
+and seamless project delivery.  
+• 
+SAP Implementation for Al-Ghanim (Client place Onsite, Middle East) Migrated live data into production systems using BDC 
+and BAPI for Material Master, service orders, and business partner updates as Data migration expert. SAP Implementation 
+Pilot for Unilever Data migration and conversion for Unilever’s SAP IS-RETAIL implementation for customer, salesman, and 
+service master data using BAPI’s. Custom enhancements to streamline delivery, billing, and stock processes ( Order to case 
+cycle OTC) 
+
+  
+ 
+ 
+Application Developer-ABAP (Permanent) 
+ 
+   IBM, Bangalore 
+                
+ Jan 2007 – Aug 2011
+• 
+Shell (Energy & Utilities, Oil and Gas Downstream) project - ABAP Debugging, Performance Optimization for BW data 
+extraction reports thus reducing runtime from 24 hours to just over 2 hours, IDOC processing and material document 
+generation. Quality reviewed peer code, and developed technical specifications, ensuring adherence to best practices and 
+performance benchmarks.  
+• 
+Changes related to invoice memos, credit/debit memos, and purchase orders using SAP SCRIPTS and Smartforms for SAP 
+Implementation for Hitachi Metals (Automotive Manufacturing). 
+ 
+PROFESSIONAL ACHIEVEMENTS & RECOGNITIONS  
+• 
+Reduction of Person-Days Effort: Led performance tuning initiatives that reduced the runtime of long-running BW extraction 
+reports from 24 hours to just 2 hours and 42 minutes, delivering immense value to the client by streamlining data operations.  
+• 
+SME Activities: Trained new hires in ABAP and contributed to the design of ABAP materials for new joiners at Accenture India.  
+• 
+Won ACE award among PRODUCTS Industry group (Accenture) for resolving long pending complex issues and handling 
+responsibilities outside the given role  
+ 
+SAP TRAINING ATTENDED
+• 
+SAP S/4 ABAP on HANA 
+• 
+SAP BTP Cockpit 
+• 
+Restful ABAP Programming 
+• 
+Fiori Bootcamp  
+EDUCATION  
+• 
+Bachelor of Engineering in Electronics & Communication 
+ 
+ 
+ 
+Anna University, India 
