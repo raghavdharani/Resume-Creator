@@ -1,0 +1,41 @@
+{
+  "artifact": "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\raghav_pipeline\\raghav_dharani_v2.pdf",
+  "generatedAt": "2026-05-30T05:52:40.812860+00:00",
+  "passed": true,
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "checks": {
+    "pageCount": 3,
+    "extractableCharacters": 6259,
+    "requiredSections": [
+      {
+        "section": "summary",
+        "present": true,
+        "matchedAlias": "professional summary"
+      },
+      {
+        "section": "strengths",
+        "present": true,
+        "matchedAlias": "core strengths"
+      },
+      {
+        "section": "experience",
+        "present": true,
+        "matchedAlias": "professional experience"
+      },
+      {
+        "section": "education",
+        "present": true,
+        "matchedAlias": "education"
+      }
+    ]
+  },
+  "issues": [],
+  "renderedPngs": [
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\raghav_pipeline\\png_v2\\raghav_dharani_v2-page-1.png",
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\raghav_pipeline\\png_v2\\raghav_dharani_v2-page-2.png",
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\raghav_pipeline\\png_v2\\raghav_dharani_v2-page-3.png"
+  ]
+}

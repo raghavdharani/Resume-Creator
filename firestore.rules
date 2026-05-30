@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.active == true;
+    }
+
+    // Users may read their own admin marker so the UI can expose admin tools.
+    // Admin records must be provisioned outside the client application.
+    match /admins/{adminId} {
+      allow read: if isOwner(adminId);
+      allow write: if false;
+    }
+
+    // Candidate records must stay under an authenticated user's tenant path.
+    match /users/{userId} {
+      allow read, create, update, delete: if isOwner(userId) || isAdmin();
+
+      match /{document=**} {
+        allow read, create, update, delete: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // Deny any future top-level collection until it receives explicit rules.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

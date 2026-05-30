@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume OS - Premium Multi-User Application Wrapper</title>
+  
+  <!-- Favicon and fonts -->
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- AUTHENTICATION GATEWAY OVERLAY -->
+  <div id="authScreen" class="modal-overlay active" style="background-color: var(--bg-obsidian); pointer-events: all; opacity: 1;">
+    <div class="modal-card" style="max-width: 420px; text-align: center;">
+      <div class="brand" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-logo" style="width: 40px; height: 40px; font-size: 1.3rem;">R</div>
+        <div class="brand-title" style="font-size: 1.5rem;">RESUME OS</div>
+      </div>
+      <h3 id="authTitle" style="font-family: var(--font-header); font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">Access Locked Workspace</h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;" id="authSubtitle">Login to synchronize your credentials and evidence.</p>
+      
+      <div class="form-group" style="text-align: left;">
+        <label class="form-label" for="authEmail">Email Address</label>
+        <input type="email" id="authEmail" class="input-text" placeholder="name@domain.com">
+      </div>
+      
+      <div class="form-group" style="text-align: left; margin-top: 0.75rem;">
+        <label class="form-label" for="authPassword">Password</label>
+        <input type="password" id="authPassword" class="input-text" placeholder="••••••••">
+      </div>
+      
+      <button id="btnAuthAction" class="btn-primary" style="width: 100%; margin-top: 1rem;"><i class="fa-solid fa-right-to-bracket"></i> Login to Workspace</button>
+      
+      <!-- SOCIAL AUTH OAUTH PROVIDERS -->
+      <div style="display: flex; align-items: center; margin: 1.25rem 0; gap: 0.5rem;">
+        <div style="flex: 1; height: 1px; background-color: var(--border-glass);"></div>
+        <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500;">Or continue with</span>
+        <div style="flex: 1; height: 1px; background-color: var(--border-glass);"></div>
+      </div>
+      
+      <div style="display: flex; gap: 0.75rem; width: 100%;">
+        <button id="btnGoogleAuth" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1rem;"><i class="fa-brands fa-google" style="color: #ea4335;"></i> Google</button>
+        <button id="btnAppleAuth" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1rem;"><i class="fa-brands fa-apple" style="color: var(--text-primary);"></i> Apple</button>
+      </div>
+
+      <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--text-secondary);">
+        <span id="authToggleText">New to Resume OS?</span> 
+        <a href="#" id="btnAuthToggle" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none;">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AWAITING APPROVAL HOLDING PAGE -->
+  <div id="approvalScreen" class="modal-overlay" style="background-color: var(--bg-obsidian);">
+    <div class="modal-card" style="max-width: 480px; text-align: center; gap: 1.5rem;">
+      <i class="fa-solid fa-user-lock" style="color: var(--color-warning); font-size: 3.5rem; animation: pulse-glow 2s infinite;"></i>
+      <div>
+        <h3 style="font-family: var(--font-header); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Awaiting Admin Approval</h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+          Your account (<span id="userPendingEmail" style="color: var(--accent-cyan); font-weight: 500;">candidate@domain.com</span>) has been created successfully but is currently **Pending Approval**.
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">
+          Once the administrator approves your access from the Admin Console, this screen will automatically unlock in real-time.
+        </p>
+      </div>
+      <button id="btnSignOutPending" class="btn-secondary" style="margin-top: 0.5rem;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+    </div>
+  </div>
+
+  <!-- Top App Navigation Bar -->
+  <header style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="brand">
+      <div class="brand-logo">R</div>
+      <div class="brand-title">RESUME OS</div>
+    </div>
+    
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <!-- Global Target Job Application Selector -->
+      <div class="profile-selector-container" id="globalAppSelector" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm);">
+        <span class="label-mini" style="margin-right: 0px; font-weight: bold; color: var(--accent-cyan);"><i class="fa-solid fa-briefcase"></i> Job App:</span>
+        <select id="applicationDropdown" class="profile-dropdown" style="min-width: 250px; font-size: 0.8rem; background: transparent; border: none; padding-right: 1.5rem; color: var(--text-primary);">
+          <!-- Loaded dynamically -->
+        </select>
+        <button id="btnNewApplication" class="btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; border-color: var(--border-glass);"><i class="fa-solid fa-plus"></i> New</button>
+      </div>
+
+      <!-- Global Profile Selector -->
+      <div id="globalProfileSelector" class="profile-selector-container" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm);">
+        <span class="label-mini" style="margin-right: 0px; font-weight: bold; color: var(--accent-indigo);"><i class="fa-solid fa-users"></i> Profile:</span>
+        <select id="profileDropdown" class="profile-dropdown" style="background: transparent; border: none; padding-right: 1.5rem; color: var(--text-primary); font-size: 0.8rem;">
+          <!-- Selected Candidate Slugs -->
+          <option value="raghav_dharani">Raghav Dharani (Senior Product Leader)</option>
+          <option value="aatmika_natarajan">Aatmika Natarajan (SAP Technical Expert)</option>
+          <option value="new_profile">+ Create New Profile</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Base Application Layout Wrapper -->
+  <div class="app-container">
+    
+    <!-- Sidebar Control Links -->
+    <aside class="sidebar">
+      <div class="nav-group">
+        <span class="label-mini">Workspace Navigation</span>
+        <a href="#" class="nav-item active" id="navDashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="#" class="nav-item" id="navContext"><i class="fa-solid fa-database"></i> Candidate Context</a>
+        <a href="#" class="nav-item" id="navEditor"><i class="fa-solid fa-pen-nib"></i> Split Workspace</a>
+        <a href="#" class="nav-item" id="navAudits"><i class="fa-solid fa-user-shield"></i> Simulation Panel</a>
+        <a href="#" class="nav-item" id="navAdmin" style="display: none; border-top: 1px dashed var(--border-glass); padding-top: 0.5rem; margin-top: 0.5rem;"><i class="fa-solid fa-user-gear"></i> Admin Panel</a>
+      </div>
+      
+      <div class="nav-group" style="margin-top: auto;">
+        <span class="label-mini">Export Center</span>
+        <button id="btnDownloadResume" class="btn-secondary" style="width: 100%; justify-content: flex-start;">
+          <i class="fa-solid fa-file-pdf"></i> Export Tailored Resume
+        </button>
+        <button id="btnDownloadPackage" class="btn-primary" style="width: 100%; justify-content: flex-start; margin-top: 0.5rem;">
+          <i class="fa-solid fa-box-archive"></i> Download Full Package
+        </button>
+      </div>
+
+      <div class="nav-group" style="margin-top: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+        <button id="btnSignOut" class="btn-secondary" style="width: 100%; justify-content: flex-start; border-color: rgba(239, 68, 68, 0.1); color: var(--color-danger);"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Scrollable Area -->
+    <main class="main-content">
+      
+      <!-- PAGE 1: INTERACTIVE DASHBOARD -->
+      <section id="pageDashboard" class="dashboard-grid col-12">
+        
+        <!-- API Key Input Banner (Hidden if key exists in config) -->
+        <div class="card-glass col-12" id="apiKeyBanner" style="display: none; background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.2); gap: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fa-solid fa-key" style="color: var(--color-warning); font-size: 1.25rem;"></i>
+              <div>
+                <strong style="color: var(--text-primary);">Google AI Studio Key Required</strong>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Enter your Gemini API key to activate live, dynamic AI resume tailoring. It is stored securely in your browser.</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <input type="password" id="apiKeyInput" class="input-text" placeholder="AIzaSy..." style="width: 250px; padding: 0.4rem 0.75rem; font-size: 0.85rem;">
+              <button id="btnSaveApiKey" class="btn-primary" style="padding: 0.4rem 1rem; font-size: 0.85rem;"><i class="fa-solid fa-floppy-disk"></i> Save Key</button>
+            </div>
+          </div>
+        </div>
+        
+
+
+        <!-- Guided Tailoring Wizard Card -->
+        <div class="card-glass col-8" id="wizardCard">
+          <div class="card-title-bar" style="border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+            <h2 class="card-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan);"></i> Guided Tailoring Wizard</h2>
+            <div id="wizardStepIndicator" style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: bold;">Step 1 of 5: JD Details</div>
+          </div>
+
+          <!-- Wizard step indicators -->
+          <div class="wizard-steps-track">
+            <div class="wizard-step-node active" data-step="1" title="Job Description Details">
+              <span class="step-num">1</span>
+              <span class="step-lbl">JD Details</span>
+            </div>
+            <div class="wizard-step-node" data-step="2" title="Source Resume Selection">
+              <span class="step-num">2</span>
+              <span class="step-lbl">Source Resume</span>
+            </div>
+            <div class="wizard-step-node" data-step="3" title="Targeting & Constraints">
+              <span class="step-num">3</span>
+              <span class="step-lbl">Focus Limits</span>
+            </div>
+            <div class="wizard-step-node" data-step="4" title="Claims Verification">
+              <span class="step-num">4</span>
+              <span class="step-lbl">Claims</span>
+            </div>
+            <div class="wizard-step-node" data-step="5" title="Final Scorecard">
+              <span class="step-num">5</span>
+              <span class="step-lbl">Scorecard</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: JD DETAILS -->
+          <div class="wizard-pane active" id="wizardPane1">
+            <div class="form-group">
+              <label class="form-label" for="wizardCompany">Company Name</label>
+              <input type="text" id="wizardCompany" class="input-text" placeholder="e.g. Left Field Labs">
+            </div>
+            <div class="form-group" style="margin-top: 0.75rem;">
+              <label class="form-label" for="wizardRole">Target Role Title</label>
+              <input type="text" id="wizardRole" class="input-text" placeholder="e.g. Senior AI Technical PM">
+            </div>
+            <div class="form-group" style="margin-top: 0.75rem;">
+              <label class="form-label" for="jdInput">Paste Target Job Description (Must-haves, Stack, Outcomes)</label>
+              <textarea id="jdInput" class="input-textarea" style="height: 180px;" placeholder="Paste target job posting description here..."></textarea>
+            </div>
+          </div>
+
+          <!-- STEP 2: SOURCE RESUME SELECTION -->
+          <div class="wizard-pane" id="wizardPane2">
+            <div class="form-group">
+              <label class="form-label" for="wizardResumeSelect">Select Master or Base Resume from your Profile</label>
+              <select id="wizardResumeSelect" class="profile-dropdown" style="width: 100%; margin-bottom: 1rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm); background: var(--bg-deep-space); color: var(--text-primary);">
+                <!-- Loaded from profile.sourceResumes -->
+              </select>
+            </div>
+            
+            <div style="border: 1px dashed var(--border-glass); border-radius: 8px; padding: 1rem; background: rgba(255,255,255,0.02); margin-bottom: 1rem;">
+              <strong style="font-size: 0.85rem; color: var(--text-primary);"><i class="fa-solid fa-file-arrow-up"></i> Upload or Paste New Master Resume to Profile</strong>
+              <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                Adding resumes here saves them permanently to your user profile for reuse across all future applications.
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="newResumeName">Resume File Name / Label</label>
+                <input type="text" id="newResumeName" class="input-text" placeholder="e.g. Retail PM Master 2026.md">
+              </div>
+              <div class="form-group" style="margin-top: 0.5rem;">
+                <label class="form-label" for="newResumeText">Paste Resume Content (Markdown or Text)</label>
+                <textarea id="newResumeText" class="input-textarea" style="height: 100px;" placeholder="Paste resume details..."></textarea>
+              </div>
+              <button id="btnUploadResume" class="btn-secondary" style="margin-top: 0.5rem; font-size: 0.8rem; padding: 0.4rem 0.75rem;"><i class="fa-solid fa-plus"></i> Add Resume to Profile Library</button>
+            </div>
+
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+              OR: <a href="#" id="btnCreateScratchResume" style="color: var(--accent-cyan); text-decoration: none; font-weight: bold;">Initialize a Blank Resume from Scratch</a>
+            </div>
+          </div>
+
+          <!-- STEP 3: FOCUS & PAGE CONSTRAINTS -->
+          <div class="wizard-pane" id="wizardPane3">
+            <div class="form-group">
+              <label class="form-label" for="wizardHighlights">Directives: Strengths to Highlight</label>
+              <textarea id="wizardHighlights" class="input-textarea" style="height: 60px;" placeholder="e.g. Highlight spec-driven development, cursor prototyping, and high-scale user migrations..."></textarea>
+            </div>
+            
+            <div class="form-group" style="margin-top: 0.75rem;">
+              <label class="form-label" for="wizardAvoids">Directives: Topics to Avoid / Downplay</label>
+              <textarea id="wizardAvoids" class="input-textarea" style="height: 60px;" placeholder="e.g. Avoid hands-on ML modeling, PyTorch code, or claims of direct financial trading ownership..."></textarea>
+            </div>
+
+            <!-- Page Count Constraints Slider -->
+            <div class="form-group" style="margin-top: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <label class="form-label" for="pageCountSlider" style="margin-bottom: 0px;">Target Resume Page Count Constraint</label>
+                <span id="pageCountValue" style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: bold;">Maximum: 2 Pages</span>
+              </div>
+              <input type="range" id="pageCountSlider" min="1" max="3" value="2" class="slider" style="width: 100%; cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                <span>1 Page (Super Concise)</span>
+                <span>2 Pages (Executive Balance)</span>
+                <span>3 Pages (Maximum Depth)</span>
+              </div>
+            </div>
+
+            <!-- Warning/Info alert -->
+            <div style="display: flex; gap: 0.5rem; align-items: flex-start; margin-top: 1rem; padding: 0.75rem; background: rgba(6, 182, 212, 0.05); border: 1px solid rgba(6, 182, 212, 0.15); border-radius: 6px; font-size: 0.8rem; color: var(--text-secondary);">
+              <i class="fa-solid fa-circle-info" style="color: var(--accent-cyan); margin-top: 2px;"></i>
+              <div>
+                <strong>Tailoring Context Embedded:</strong> Strengths, avoids, and length bounds will be injected directly into the active 19-agent AI pipeline prompts to enforce layout and narrative limits.
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: CLAIMS AUDIT BOARD -->
+          <div class="wizard-pane" id="wizardPane4">
+            <div style="margin-bottom: 1rem;">
+              <strong style="color: var(--text-primary); font-size: 0.9rem;">Interactive Truth & Credibility Review</strong>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                The Truth Auditor has isolated potential stretches or high-risk claims. Choose to approve or reject them. Final audit logs are saved permanently to Firestore.
+              </div>
+            </div>
+            
+            <div id="wizardClaimsContainer" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 250px; overflow-y: auto; padding-right: 0.25rem;">
+              <!-- Dynamic claims review cards -->
+            </div>
+            
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem;">
+              <i class="fa-solid fa-shield-halved"></i> Active audit log: <span style="color: var(--accent-cyan);">/users/{user}/outputs/{application}/approval_audit_trail.md</span>
+            </div>
+          </div>
+
+          <!-- STEP 5: COMPLETED STATUS -->
+          <div class="wizard-pane" id="wizardPane5">
+            <div style="text-align: center; padding: 1.5rem 1rem;">
+              <i class="fa-solid fa-circle-check" style="color: var(--color-success); font-size: 3.5rem;"></i>
+              <h3 style="font-family: var(--font-header); font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 1rem; margin-bottom: 0.25rem;">Tailoring Successfully Completed!</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 400px; margin: 0 auto 1.25rem;">
+                All AI-powered recruiter checks, hiring manager simulations, and tailored markdowns have been compiled.
+              </p>
+              
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 8px; padding: 0.75rem; max-width: 320px; margin: 0 auto 1.25rem; text-align: left;">
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-bottom: 0.5rem; text-transform: uppercase;">Final Quality Audits</div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.25rem 0.5rem;">
+                  <span>Recruiter Shortlist:</span>
+                  <strong id="completedRecruiterScore" style="color: var(--accent-indigo);">0%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.25rem 0.5rem;">
+                  <span>HM Credibility:</span>
+                  <strong id="completedHMScore" style="color: var(--accent-cyan);">0%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.25rem 0.5rem;">
+                  <span>ATS Match Score:</span>
+                  <strong id="completedATSScore" style="color: var(--color-warning);">0%</strong>
+                </div>
+              </div>
+              
+              <button id="btnUnlockEditor" class="btn-primary" style="margin: 0 auto;"><i class="fa-solid fa-pen-nib"></i> Open Split Workspace Editor</button>
+            </div>
+          </div>
+
+          <!-- Wizard Footer Controls -->
+          <div class="wizard-footer">
+            <button id="btnWizardBack" class="btn-secondary" disabled><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <div style="display: flex; gap: 0.75rem;">
+              <button id="btnWizardNext" class="btn-primary">Next <i class="fa-solid fa-arrow-right"></i></button>
+              <button id="btnWizardExecute" class="btn-primary" style="display: none;"><i class="fa-solid fa-wand-magic-sparkles"></i> Execute Tailoring</button>
+              <button id="btnWizardFinalize" class="btn-primary" style="display: none;"><i class="fa-solid fa-box-archive"></i> Finalize Application</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candidate Target Brief -->
+        <div class="card-glass col-4">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-user-tie" style="color: var(--accent-cyan);"></i> Candidate Brief</h2>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem; height: 100%;">
+            <div style="border-left: 2px solid var(--accent-indigo); padding-left: 0.75rem;">
+              <div class="form-label" style="text-transform: uppercase; font-size: 0.7rem; color: var(--text-muted);">Active Identity</div>
+              <div id="briefName" style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary);">Raghav Dharani</div>
+            </div>
+            
+            <div style="border-left: 2px solid var(--accent-cyan); padding-left: 0.75rem;">
+              <div class="form-label" style="text-transform: uppercase; font-size: 0.7rem; color: var(--text-muted);">Target Title Focus</div>
+              <div id="briefTitle" style="font-size: 0.95rem; color: var(--text-secondary);">Senior Product Manager - AI-Enabled Platforms</div>
+            </div>
+            
+            <div style="border-left: 2px solid var(--color-success); padding-left: 0.75rem;">
+              <div class="form-label" style="text-transform: uppercase; font-size: 0.7rem; color: var(--text-muted);">Usable Evidence Assets</div>
+              <div id="briefEvidenceCount" style="font-size: 0.95rem; color: var(--text-secondary);">3 Confirmed Core Claims / 8 Confirmed Metrics</div>
+            </div>
+            
+            <div style="border-left: 2px solid var(--accent-indigo); padding-left: 0.75rem;">
+              <div class="form-label" style="text-transform: uppercase; font-size: 0.7rem; color: var(--text-muted);">Work Authorization & Length</div>
+              <div id="briefVisaLength" style="font-size: 0.95rem; color: var(--text-secondary);">US Citizen | 2 Pages Target</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19-Agent Horizonal Processing Console -->
+        <div class="card-glass col-12">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-network-wired" style="color: var(--accent-indigo);"></i> Multi-Agent Pipeline Console</h2>
+            <div id="pipelineStatus" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">Status: Idle</div>
+          </div>
+          
+          <!-- Horizontal Pipeline nodes -->
+          <div class="pipeline-track" id="pipelineTrack">
+            <div class="pipeline-line"></div>
+            <div class="pipeline-node" data-node="profile">
+              <div class="node-circle">1</div>
+              <div class="node-label">Profile Mgr</div>
+            </div>
+            <div class="pipeline-node" data-node="jd">
+              <div class="node-circle">2</div>
+              <div class="node-label">JD Analyst</div>
+            </div>
+            <div class="pipeline-node" data-node="positioning">
+              <div class="node-circle">3</div>
+              <div class="node-label">Positioning</div>
+            </div>
+            <div class="pipeline-node" data-node="architecture">
+              <div class="node-circle">4</div>
+              <div class="node-label">Resume Arch</div>
+            </div>
+            <div class="pipeline-node" data-node="truth">
+              <div class="node-circle">5</div>
+              <div class="node-label">Truth Aud</div>
+            </div>
+            <div class="pipeline-node" data-node="credibility">
+              <div class="node-circle">6</div>
+              <div class="node-label">Cred Aud</div>
+            </div>
+            <div class="pipeline-node" data-node="simulator">
+              <div class="node-circle">7</div>
+              <div class="node-label">Simulations</div>
+            </div>
+            <div class="pipeline-node" data-node="packages">
+              <div class="node-circle">8</div>
+              <div class="node-label">Packaging</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Claims Review Board (Interactive Extrapolations) -->
+        <div class="card-glass col-12" id="claimsReviewSection" style="display: none;">
+          <div class="card-title-bar">
+            <h2 class="card-title" style="color: var(--color-warning);"><i class="fa-solid fa-clipboard-check"></i> Claims Awaiting Candidate Approval</h2>
+            <span class="label-mini" style="background-color: var(--color-warning-glow); color: var(--color-warning); padding: 0.25rem 0.5rem; border-radius: 4px;">Approval Audit-Trail Enabled</span>
+          </div>
+          
+          <div class="claim-cards-container" id="claimsReviewContainer">
+            <!-- Dynamic claim approval cards loaded via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Simulation Gauge Scoreboard -->
+        <div class="card-glass col-12" id="scoreboardSection" style="display: none;">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-chart-pie" style="color: var(--accent-cyan);"></i> Simulation Scoreboard</h2>
+            <button id="btnViewDefensibility" class="btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;"><i class="fa-solid fa-shield-halved"></i> Interview Defensibility</button>
+          </div>
+          
+          <div class="scoreboard-flex">
+            <!-- Recruiter shortlist gauge -->
+            <div class="gauge-item">
+              <div id="gaugeRecruiter" class="gauge-circle" style="--color: var(--accent-indigo); --percentage: 0%;" data-score="0">0%</div>
+              <span class="gauge-label">Recruiter Shortlist</span>
+            </div>
+            <!-- Hiring Manager gauge -->
+            <div class="gauge-item">
+              <div id="gaugeHM" class="gauge-circle" style="--color: var(--accent-cyan); --percentage: 0%;" data-score="0">0%</div>
+              <span class="gauge-label">Hiring Manager Credibility</span>
+            </div>
+            <!-- Defensibility gauge -->
+            <div class="gauge-item">
+              <div id="gaugeDefensibility" class="gauge-circle" style="--color: var(--color-success); --percentage: 0%;" data-score="0">0%</div>
+              <span class="gauge-label">Interview Defensibility</span>
+            </div>
+            <!-- ATS Match gauge -->
+            <div class="gauge-item">
+              <div id="gaugeATS" class="gauge-circle" style="--color: var(--color-warning); --percentage: 0%;" data-score="0">0%</div>
+              <span class="gauge-label">ATS Score Match</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 2: CANDIDATE CONTEXT EDITOR -->
+      <section id="pageContext" class="dashboard-grid col-12" style="display: none;">
+        <div class="card-glass col-12">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-database" style="color: var(--accent-cyan);"></i> Context Library Editor</h2>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <div class="pane-tabs">
+                <div class="pane-tab active" data-context-tab="evidence">Evidence Bank</div>
+                <div class="pane-tab" data-context-tab="metrics">Approved Metrics</div>
+                <div class="pane-tab" data-context-tab="extrapolations">Extrapolations</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Dynamic JSON structure table grid -->
+          <div style="overflow-x: auto; width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;" id="contextTable">
+              <!-- Rendered via JS -->
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3: SPLIT-SCREEN WORKSPACE -->
+      <section id="pageEditor" class="col-12" style="display: none;">
+        <div class="editor-workspace">
+          
+          <!-- Left Side: Source/Text Editor -->
+          <div class="editor-pane">
+            <div class="pane-header">
+              <div class="pane-tabs" id="editorTabs">
+                <div class="pane-tab active" data-editor-tab="resume">Tailored Resume</div>
+                <div class="pane-tab" data-editor-tab="cover">Cover Letter</div>
+                <div class="pane-tab" data-editor-tab="outreach">Outreach Note</div>
+                <div class="pane-tab" data-editor-tab="interview">Interview Prep</div>
+                <div class="pane-tab" data-editor-tab="audit">Audit Trail</div>
+              </div>
+              <span class="label-mini" style="color: var(--accent-indigo); font-weight: bold;"><i class="fa-solid fa-code"></i> Markdown Editor</span>
+            </div>
+            <textarea id="editorTextarea" class="editor-textarea" spellcheck="false"></textarea>
+          </div>
+          
+          <!-- Right Side: Beautiful PDF Layout Preview -->
+          <div class="editor-pane">
+            <div class="pane-header" style="background-color: var(--bg-deep-space);">
+              <span class="label-mini" style="font-weight: bold; color: var(--accent-cyan);"><i class="fa-solid fa-file-pdf"></i> Visual Preview (Letter size)</span>
+              <span class="label-mini" id="pageBoundingCount" style="background-color: var(--border-glass); padding: 0.25rem 0.5rem; border-radius: 4px;">1 / 2 Pages Used</span>
+            </div>
+            
+            <!-- Live Preview Card Rendering -->
+            <div id="resumePreview" class="preview-pane">
+              <!-- Rendered dynamically from editor content -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 4: DETAILED AUDITS PANEL -->
+      <section id="pageAudits" class="dashboard-grid col-12" style="display: none;">
+        <div class="card-glass col-12">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-user-shield" style="color: var(--color-success);"></i> Skeptical Recruiter & HM Simulation Analysis</h2>
+          </div>
+          
+          <div class="claim-cards-container">
+            <div class="claim-card">
+              <div class="form-label" style="text-transform: uppercase; font-weight: bold; color: var(--accent-indigo);"><i class="fa-solid fa-glasses"></i> Skeptical Recruiter 30-Second Appraisal</div>
+              <div id="simRecruiterText" style="font-size: 0.95rem; color: var(--text-primary); margin-top: 0.5rem; line-height: 1.6;">
+                Execute the pipeline first to generate simulation analysis.
+              </div>
+            </div>
+            
+            <div class="claim-card">
+              <div class="form-label" style="text-transform: uppercase; font-weight: bold; color: var(--accent-cyan);"><i class="fa-solid fa-user-tie"></i> Hiring Manager Decision Risk Assessment</div>
+              <div id="simHMText" style="font-size: 0.95rem; color: var(--text-primary); margin-top: 0.5rem; line-height: 1.6;">
+                Execute the pipeline first to generate simulation analysis.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 5: ADMIN USER CONTROL PANEL -->
+      <section id="pageAdmin" class="dashboard-grid col-12" style="display: none;">
+        <div class="card-glass col-12">
+          <div class="card-title-bar">
+            <h2 class="card-title"><i class="fa-solid fa-user-gear" style="color: var(--color-warning);"></i> Admin User Access & Permissions Panel</h2>
+            <span class="label-mini" style="background-color: var(--color-success-glow); color: var(--color-success); padding: 0.25rem 0.5rem; border-radius: 4px;"><i class="fa-solid fa-circle-check"></i> Security Rules Enforced</span>
+          </div>
+
+          <div style="overflow-x: auto; width: 100%; margin-top: 0.5rem;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;" id="adminUserTable">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border-glass); color: var(--text-primary); font-weight: bold;">
+                  <th style="padding: 0.75rem;">User Email</th>
+                  <th style="padding: 0.75rem;">Role</th>
+                  <th style="padding: 0.75rem;">Current Status</th>
+                  <th style="padding: 0.75rem; text-align: center;">Allowed Outputs</th>
+                  <th style="padding: 0.75rem; text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminUserTableBody">
+                <!-- Rendered dynamically in app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+  </div>
+
+  <!-- INTERACTIVE MODAL OVERLAYS -->
+  
+  <!-- Interview Defensibility Modal -->
+  <div id="defensibilityModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="card-title-bar" style="border-bottom: 1px solid var(--border-glass); padding-bottom: 0.75rem;">
+        <h2 class="card-title" style="color: var(--accent-cyan);"><i class="fa-solid fa-shield-halved"></i> Interview Defensibility Drilldown</h2>
+        <span class="label-mini" style="cursor: pointer;" id="btnCloseDefensibilityModal"><i class="fa-solid fa-xmark" style="font-size: 1.25rem;"></i></span>
+      </div>
+      
+      <div style="max-height: 400px; overflow-y: auto;" id="defensibilityQAContainer">
+        <!-- Rendered dynamically -->
+      </div>
+      
+      <div style="display: flex; justify-content: flex-end; border-top: 1px solid var(--border-glass); padding-top: 1rem; margin-top: 1rem;">
+        <button id="btnCloseDefensibility" class="btn-primary">Acknowledge</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Profile Modal -->
+  <div id="newProfileModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="card-title-bar">
+        <h2 class="card-title"><i class="fa-solid fa-user-plus" style="color: var(--accent-indigo);"></i> Create New Profile</h2>
+        <span class="label-mini" style="cursor: pointer;" id="btnCloseProfileModal"><i class="fa-solid fa-xmark" style="font-size: 1.25rem;"></i></span>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="profileNameInput">Full Name</label>
+        <input type="text" id="profileNameInput" class="input-text" placeholder="e.g. John Doe">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="profileRoleInput">Target Role Archetype</label>
+        <input type="text" id="profileRoleInput" class="input-text" placeholder="e.g. Lead Product Manager, SAP Architect">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="profileVisaInput">Visa / Work Authorization Status</label>
+        <input type="text" id="profileVisaInput" class="input-text" placeholder="e.g. US Citizen, Canadian Citizen (TN eligible), W2 Only">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="profileLengthInput">Preferred Target Resume Length</label>
+        <select id="profileLengthInput" class="input-text" style="background-color: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-glass);">
+          <option value="1">1 Page</option>
+          <option value="2" selected>2 Pages</option>
+          <option value="3">3 Pages</option>
+        </select>
+      </div>
+      
+      <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+        <button id="btnCancelProfile" class="btn-secondary">Cancel</button>
+        <button id="btnSaveProfile" class="btn-primary">Create Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Target Application Modal -->
+  <div id="newApplicationModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 480px;">
+      <div class="card-title-bar">
+        <h2 class="card-title"><i class="fa-solid fa-folder-plus" style="color: var(--accent-indigo);"></i> Create Job Application</h2>
+        <span class="label-mini" style="cursor: pointer;" id="btnCloseApplicationModal"><i class="fa-solid fa-xmark" style="font-size: 1.25rem;"></i></span>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="appCompanyInput">Company Name</label>
+        <input type="text" id="appCompanyInput" class="input-text" placeholder="e.g. Left Field Labs">
+      </div>
+      
+      <div class="form-group" style="margin-top: 0.75rem;">
+        <label class="form-label" for="appRoleInput">Target Role/Title</label>
+        <input type="text" id="appRoleInput" class="input-text" placeholder="e.g. Senior AI Product Manager">
+      </div>
+      
+      <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+        <button id="btnCancelApplication" class="btn-secondary">Cancel</button>
+        <button id="btnSaveApplication" class="btn-primary">Create Application</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export Options Modal -->
+  <div id="exportOptionsModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="card-title-bar">
+        <h2 class="card-title"><i class="fa-solid fa-file-export" style="color: var(--accent-cyan);"></i> Export Document</h2>
+        <span class="label-mini" style="cursor: pointer;" id="btnCloseExportModal"><i class="fa-solid fa-xmark" style="font-size: 1.25rem;"></i></span>
+      </div>
+      
+      <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.5rem; line-height: 1.4;">
+        Choose how you would like to save the active document (<strong id="exportDocumentTypeName">Tailored Resume</strong>).
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <button id="btnExportMarkdown" class="btn-primary" style="justify-content: center; gap: 0.5rem; padding: 0.75rem; width: 100%;">
+          <i class="fa-solid fa-file-code"></i> Download as Markdown (.md)
+        </button>
+        <button id="btnExportPDF" class="btn-secondary" style="justify-content: center; gap: 0.5rem; padding: 0.75rem; width: 100%;">
+          <i class="fa-solid fa-file-pdf"></i> Open Print / Save to PDF Dialog
+        </button>
+      </div>
+      
+      <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+        <button id="btnCancelExport" class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Isolated Firebase Config File -->
+  <script src="config.js"></script>
+
+  <!-- Firebase Compat (non-module) SDKs for robust local file:// protocol access -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+
+  <script>
+    // Initialize Firebase Compat
+    const app = firebase.initializeApp(window.firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    // Map helpers to match modular syntax used in app.js
+    window.db = db;
+    window.storage = storage;
+    window.firebaseHelpers = {
+      collection: (dbRef, ...paths) => {
+        let ref = db;
+        if (dbRef !== db) ref = dbRef;
+        for (let i = 0; i < paths.length; i++) {
+          if (i % 2 === 0) {
+            ref = ref.collection(paths[i]);
+          } else {
+            ref = ref.doc(paths[i]);
+          }
+        }
+        return ref;
+      },
+      doc: (dbRef, ...paths) => {
+        let ref = db;
+        if (dbRef !== db) ref = dbRef;
+        for (let i = 0; i < paths.length; i++) {
+          if (i % 2 === 0) {
+            ref = ref.collection(paths[i]);
+          } else {
+            ref = ref.doc(paths[i]);
+          }
+        }
+        return ref;
+      },
+      setDoc: (docRef, data) => docRef.set(data),
+      addDoc: (colRef, data) => colRef.add(data),
+      getDocs: (colRef) => colRef.get().then(snapshot => {
+        const docs = [];
+        snapshot.forEach(doc => {
+          docs.push({
+            id: doc.id,
+            data: () => doc.data()
+          });
+        });
+        return {
+          empty: snapshot.empty,
+          forEach: (callback) => docs.forEach(callback)
+        };
+      })
+    };
+    console.log("Firebase Compat Services and modular wrappers registered successfully.");
+  </script>
+
+  <!-- JS Logic script -->
+  <script src="app.js"></script>
+</body>
+</html>

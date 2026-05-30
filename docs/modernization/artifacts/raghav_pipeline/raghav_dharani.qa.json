@@ -1,0 +1,144 @@
+{
+  "artifact": "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\raghav_pipeline\\raghav_dharani.rendered.html",
+  "generatedAt": "2026-05-30T05:51:13.246Z",
+  "passed": true,
+  "summary": {
+    "errors": 0,
+    "warnings": 3
+  },
+  "checks": {
+    "requiredSections": [
+      {
+        "section": "Professional Summary",
+        "present": true
+      },
+      {
+        "section": "Core Strengths",
+        "present": true
+      },
+      {
+        "section": "Professional Experience",
+        "present": true
+      },
+      {
+        "section": "Education",
+        "present": true
+      }
+    ],
+    "singleColumnMarkers": true,
+    "letterPageSize": true,
+    "safeHyphenBulletCss": true
+  },
+  "density": {
+    "lineCount": 336,
+    "longLines": [
+      {
+        "line": 203,
+        "characters": 857
+      },
+      {
+        "line": 207,
+        "characters": 247
+      },
+      {
+        "line": 208,
+        "characters": 276
+      },
+      {
+        "line": 222,
+        "characters": 282
+      },
+      {
+        "line": 223,
+        "characters": 241
+      },
+      {
+        "line": 224,
+        "characters": 261
+      },
+      {
+        "line": 238,
+        "characters": 255
+      },
+      {
+        "line": 239,
+        "characters": 244
+      },
+      {
+        "line": 256,
+        "characters": 246
+      },
+      {
+        "line": 271,
+        "characters": 255
+      },
+      {
+        "line": 272,
+        "characters": 246
+      }
+    ],
+    "listItemCount": 27,
+    "longListItems": [
+      {
+        "item": 4,
+        "characters": 263
+      },
+      {
+        "item": 6,
+        "characters": 242
+      }
+    ]
+  },
+  "issues": [
+    {
+      "code": "excessive_inline_html_density",
+      "severity": "warning",
+      "message": "11 HTML lines exceed 240 characters.",
+      "count": 11,
+      "examples": [
+        {
+          "line": 203,
+          "characters": 857
+        },
+        {
+          "line": 207,
+          "characters": 247
+        },
+        {
+          "line": 208,
+          "characters": 276
+        },
+        {
+          "line": 222,
+          "characters": 282
+        },
+        {
+          "line": 223,
+          "characters": 241
+        }
+      ]
+    },
+    {
+      "code": "long_list_item_density",
+      "severity": "warning",
+      "message": "2 list item(s) exceed 240 characters.",
+      "count": 2,
+      "examples": [
+        {
+          "item": 4,
+          "characters": 263
+        },
+        {
+          "item": 6,
+          "characters": 242
+        }
+      ]
+    },
+    {
+      "code": "excessive_list_item_density",
+      "severity": "warning",
+      "message": "27 list items exceed the scan-friendly limit of 24.",
+      "count": 27
+    }
+  ]
+}

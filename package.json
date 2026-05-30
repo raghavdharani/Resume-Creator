@@ -1,0 +1,43 @@
+{
+  "name": "resume-os-modernization",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "build": "tsc -b && vite build --config vite.config.ts",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:import": "node tests/import/import-resume.test.mjs",
+    "test:watch": "vitest",
+    "test:integration": "vitest run tests/integration",
+    "test:catalog": "node --experimental-strip-types tests/catalog/workspace-catalog.test.mjs",
+    "test:local-integration": "node --experimental-strip-types tests/integration/process-markdown-resume.test.mjs",
+    "test:artifact-qa": "node tests/qa/qa-resume-artifact.test.mjs",
+    "test:pdf-qa": "python -m unittest tests.qa.test_qa_pdf_artifact",
+    "catalog:refresh": "node scripts/generate-workspace-catalog.mjs",
+    "qa:artifact": "node scripts/qa-resume-artifact.mjs",
+    "qa:pdf": "python scripts/qa_pdf_artifact.py",
+    "process:resume": "node --experimental-strip-types scripts/process-markdown-resume.mjs",
+    "publish:fallback": "python scripts/publish_fallback_pdf.py",
+    "render:pdf": "python scripts/render_html_pdf.py",
+    "render:resume": "node --experimental-strip-types scripts/render-canonical-resume.mjs",
+    "verify:foundation": "node --experimental-strip-types scripts/verify-foundation.mjs",
+    "preview": "vite preview --config vite.config.ts"
+  },
+  "dependencies": {
+    "firebase": "^12.7.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/node": "^22.10.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.9"
+  }
+}

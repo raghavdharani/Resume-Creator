@@ -1,0 +1,180 @@
+{
+  "artifact": "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\aatmika_natarajan.rendered.html",
+  "generatedAt": "2026-05-30T05:51:13.157Z",
+  "passed": true,
+  "summary": {
+    "errors": 0,
+    "warnings": 3
+  },
+  "checks": {
+    "requiredSections": [
+      {
+        "section": "Professional Summary",
+        "present": true
+      },
+      {
+        "section": "Core Strengths",
+        "present": true
+      },
+      {
+        "section": "Professional Experience",
+        "present": true
+      },
+      {
+        "section": "Education",
+        "present": true
+      }
+    ],
+    "singleColumnMarkers": true,
+    "letterPageSize": true,
+    "safeHyphenBulletCss": true
+  },
+  "density": {
+    "lineCount": 354,
+    "longLines": [
+      {
+        "line": 203,
+        "characters": 866
+      },
+      {
+        "line": 208,
+        "characters": 253
+      },
+      {
+        "line": 209,
+        "characters": 257
+      },
+      {
+        "line": 225,
+        "characters": 326
+      },
+      {
+        "line": 228,
+        "characters": 289
+      },
+      {
+        "line": 232,
+        "characters": 266
+      },
+      {
+        "line": 251,
+        "characters": 263
+      },
+      {
+        "line": 262,
+        "characters": 262
+      },
+      {
+        "line": 276,
+        "characters": 260
+      },
+      {
+        "line": 277,
+        "characters": 264
+      },
+      {
+        "line": 302,
+        "characters": 252
+      },
+      {
+        "line": 314,
+        "characters": 255
+      }
+    ],
+    "listItemCount": 56,
+    "longListItems": [
+      {
+        "item": 5,
+        "characters": 307
+      },
+      {
+        "item": 8,
+        "characters": 270
+      },
+      {
+        "item": 12,
+        "characters": 247
+      },
+      {
+        "item": 20,
+        "characters": 244
+      },
+      {
+        "item": 31,
+        "characters": 243
+      },
+      {
+        "item": 34,
+        "characters": 241
+      },
+      {
+        "item": 35,
+        "characters": 245
+      }
+    ]
+  },
+  "issues": [
+    {
+      "code": "excessive_inline_html_density",
+      "severity": "warning",
+      "message": "12 HTML lines exceed 240 characters.",
+      "count": 12,
+      "examples": [
+        {
+          "line": 203,
+          "characters": 866
+        },
+        {
+          "line": 208,
+          "characters": 253
+        },
+        {
+          "line": 209,
+          "characters": 257
+        },
+        {
+          "line": 225,
+          "characters": 326
+        },
+        {
+          "line": 228,
+          "characters": 289
+        }
+      ]
+    },
+    {
+      "code": "long_list_item_density",
+      "severity": "warning",
+      "message": "7 list item(s) exceed 240 characters.",
+      "count": 7,
+      "examples": [
+        {
+          "item": 5,
+          "characters": 307
+        },
+        {
+          "item": 8,
+          "characters": 270
+        },
+        {
+          "item": 12,
+          "characters": 247
+        },
+        {
+          "item": 20,
+          "characters": 244
+        },
+        {
+          "item": 31,
+          "characters": 243
+        }
+      ]
+    },
+    {
+      "code": "excessive_list_item_density",
+      "severity": "warning",
+      "message": "56 list items exceed the scan-friendly limit of 24.",
+      "count": 56
+    }
+  ]
+}

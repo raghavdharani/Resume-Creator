@@ -21,8 +21,22 @@ __pycache__/
 # Local environment files
 .env
 .env.*
+config.js
 
 # Generated scratch folders
 scratch/
 tmp/
 temp/
+
+# Node build artifacts
+node_modules/
+dist/
+coverage/
+.npm-cache/
+*.tsbuildinfo
+
+# Firebase local emulator state
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log

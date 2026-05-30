@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jordan Lee Resume</title>
+  <style>
+    :root { --accent: #245f8f; --accent-soft: #e7f2fa; --ink: #1f2933; --muted: #52616f; --rule: #8bb9d8; --gutter: 0.56in; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { color: var(--ink); background: #fff; font-family: Calibri, Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.32; }
+    .top-rule { height: 4px; background: var(--accent); }
+    .resume-header { display: flex; justify-content: space-between; gap: 24px; padding: 18px var(--gutter) 16px; background: var(--accent-soft); }
+    .resume-name { margin: 0; color: var(--accent); font-size: 25pt; line-height: 1.05; }
+    .resume-title { margin: 5px 0 0; font-size: 12pt; font-weight: 700; }
+    .contact-list { margin: 0; padding: 0; color: var(--muted); font-size: 9.5pt; line-height: 1.38; list-style: none; text-align: right; }
+    .resume-body { padding: 14px var(--gutter) 20px; }
+    .resume-section { margin: 0 0 13px; }
+    .section-title { margin: 0 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--rule); color: var(--accent); font-size: 10.5pt; text-transform: uppercase; }
+    p { margin: 0; }
+    .strength-row { margin: 0 0 3px; }
+    .strength-category { color: var(--accent); }
+    .experience-item, .education-item, .bullet-list li { break-inside: avoid; page-break-inside: avoid; }
+    .experience-item, .education-item { margin-top: 11px; }
+    .experience-heading, .education-heading { display: flex; align-items: baseline; gap: 12px; color: var(--accent); font-weight: 700; }
+    .experience-company, .education-institution { flex: 1 1 34%; }
+    .experience-title, .education-credential { flex: 1 1 40%; color: var(--ink); text-align: center; }
+    .experience-dates, .education-dates { flex: 1 1 26%; text-align: right; white-space: nowrap; }
+    .experience-meta { margin-top: 1px; color: var(--muted); font-size: 9.5pt; }
+    .bullet-list { margin: 5px 0 0; padding: 0; list-style: none; }
+    .bullet-list li { position: relative; margin: 0 0 3px; padding-left: 13px; }
+    .bullet-list li::before { position: absolute; left: 0; content: "-"; }
+    @page { size: Letter; margin: 0.42in 0; }
+    @media print { body { color: #000; background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top-rule"></div>
+    <header class="resume-header">
+      <div><h1 class="resume-name">Jordan Lee</h1><p class="resume-title">Senior Product Manager | Workflow Automation</p></div>
+      <ul class="contact-list"><li>Toronto, ON</li><li>jordan@example.com</li><li>linkedin.com/in/jordanlee</li></ul>
+    </header>
+    <div class="resume-body">
+      <section class="resume-section"><h2 class="section-title">Professional Summary</h2><p>Product leader focused on operational workflows, platform modernization, and measurable customer outcomes.</p></section>
+      <section class="resume-section"><h2 class="section-title">Core Strengths</h2><p class="strength-row"><strong class="strength-category">Product:</strong> Discovery | Roadmaps | Launch Planning</p><p class="strength-row"><strong class="strength-category">Delivery:</strong> Agile | Cross-functional Leadership</p></section>
+      <section class="resume-section"><h2 class="section-title">Professional Experience</h2><article class="experience-item"><div class="experience-heading"><span class="experience-company">Example Corp</span><span class="experience-title">Senior Product Manager</span><span class="experience-dates">2022 - Present</span></div><p class="experience-meta">Toronto, ON</p><ul class="bullet-list"><li>Led workflow modernization across customer onboarding and internal operations.</li><li>Partnered with engineering and design to improve product delivery.</li></ul></article></section>
+      <section class="resume-section"><h2 class="section-title">Education</h2><article class="education-item"><div class="education-heading"><span class="education-institution">Example University</span><span class="education-credential">B.A., Economics</span><span class="education-dates">2014</span></div></article></section>
+    </div>
+  </main>
+</body>
+</html>

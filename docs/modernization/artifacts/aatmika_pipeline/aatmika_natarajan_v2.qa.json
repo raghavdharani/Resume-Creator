@@ -1,0 +1,42 @@
+{
+  "artifact": "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\aatmika_natarajan_v2.pdf",
+  "generatedAt": "2026-05-30T05:52:40.873836+00:00",
+  "passed": true,
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "checks": {
+    "pageCount": 4,
+    "extractableCharacters": 10771,
+    "requiredSections": [
+      {
+        "section": "summary",
+        "present": true,
+        "matchedAlias": "professional summary"
+      },
+      {
+        "section": "strengths",
+        "present": true,
+        "matchedAlias": "core strengths"
+      },
+      {
+        "section": "experience",
+        "present": true,
+        "matchedAlias": "professional experience"
+      },
+      {
+        "section": "education",
+        "present": true,
+        "matchedAlias": "education"
+      }
+    ]
+  },
+  "issues": [],
+  "renderedPngs": [
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\png_v2\\aatmika_natarajan_v2-page-1.png",
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\png_v2\\aatmika_natarajan_v2-page-2.png",
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\png_v2\\aatmika_natarajan_v2-page-3.png",
+    "C:\\Users\\MickyRags\\OneDrive\\Documents\\Resume\\resume-application-workspace\\docs\\modernization\\artifacts\\aatmika_pipeline\\png_v2\\aatmika_natarajan_v2-page-4.png"
+  ]
+}
